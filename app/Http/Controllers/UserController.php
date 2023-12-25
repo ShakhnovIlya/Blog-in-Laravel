@@ -22,6 +22,12 @@ class UserController extends Controller
 
     public function insert_user(Request $request)
     {
+        request()->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required'
+        ]);
+
         $save = new User;
         $save->name = trim($request->name);
         $save->email = trim($request->email);
@@ -40,6 +46,11 @@ class UserController extends Controller
 
     public function update_user($id, Request $request)
     {
+        request()->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email' . $id,
+        ]);
+
         $save = User::getSingle($id);
         $save->name = trim($request->name);
         $save->email = trim($request->email);
