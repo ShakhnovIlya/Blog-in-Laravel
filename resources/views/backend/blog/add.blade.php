@@ -12,7 +12,7 @@
             <div class="card-body">
               <h5 class="card-title">Add New Blog</h5>
 
-              <form class="row g-3" action="" method="post">
+              <form class="row g-3" action="" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }}
                 <div class="col-12">
                   <label class="form-label">Title *</label>
@@ -21,8 +21,11 @@
 
                 <div class="col-12">
                   <label class="form-label">Category *</label>
-                  <select class="form-control" name="category_id">
-                      <option value="">Select Category</option>
+                  <select class="form-control" name="category_id" required>
+                    <option value="">Select Category</option>
+                    @foreach($getCategory as $value)
+                      <option value="{{ $value->id }}">{{ $value->name }}</option>
+                    @endforeach
                   </select>
                 </div>
 
@@ -33,7 +36,7 @@
 
                 <div class="col-12">
                   <label class="form-label">Description *</label>
-                  <textarea class="form-control tinymce-editor"></textarea>
+                  <textarea class="form-control tinymce-editor" name="description"></textarea>
                 </div>
 
                 <div class="col-12">
@@ -87,4 +90,3 @@
 
 @section('script')
 @endsection
-
