@@ -50,7 +50,6 @@
   <script src="{{ url('public/assets/vendor/quill/quill.min.js') }}"></script>
   <script src="{{ url('public/assets/vendor/simple-datatables/simple-datatables.js') }}"></script>
   <script src="{{ url('public/assets/vendor/tinymce/tinymce.min.js') }}"></script>
-  <script src="{{ url('public/assets/vendor/php-email-form/validate.js') }}"></script>
 
   <!-- Template Main JS File -->
   <script src="{{ url('public/assets/js/main.js') }}"></script>

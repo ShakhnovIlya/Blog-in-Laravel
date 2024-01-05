@@ -24,7 +24,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('panel/blog/list') }}">
+        <a class="nav-link @if (Request::segment(2) != 'blog') collapsed @endif" href="{{ url('panel/blog/list') }}">
           <i class="bi bi-person"></i>
           <span>Blog</span>
         </a>
